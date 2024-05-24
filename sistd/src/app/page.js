@@ -15,7 +15,7 @@ export default function Home() {
 
   useEffect(() => {
     // Obtener la lista de personas al cargar el componente
-    axios.get('http://localhost:8080/personas')
+    axios.get('http://servicionube-production.up.railway.app/personas')
       .then(response => {
         setPersonas(response.data);
       })
@@ -34,11 +34,11 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8080/addpersona', formData)
+    axios.post('http://servicionube-production.up.railway.app/addpersona', formData)
       .then(response => {
         alert(response.data);
         // Actualizar la lista de personas
-        return axios.get('http://localhost:8080/personas');
+        return axios.get('http://servicionube-production.up.railway.app/personas');
       })
       .then(response => {
         setPersonas(response.data);
